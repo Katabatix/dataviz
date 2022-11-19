@@ -1,5 +1,5 @@
 import "./App.css";
-import Tableau from "./Tableau";
+import Tableau from "./visualizations/Tableau";
 import { Tab, Tabs } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
