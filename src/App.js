@@ -1,15 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-import Tableau from './Tableau';
+import "./App.css";
+import Tableau from "./Tableau";
+import { Tab, Tabs } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
       <h1>Tableau Dashboard in React </h1>
-      <Tableau />
+      <Tabs
+        defaultActiveKey="profile"
+        id="uncontrolled-tab-example"
+        className="mb-3"
+      >
+        <Tab eventKey="home" title="Home">
+          <Tableau />
+        </Tab>
+        <Tab eventKey="profile" title="Profile">
+          <Tableau />
+        </Tab>
+        <Tab eventKey="contact" title="Contact" disabled>
+          <Tableau />
+        </Tab>
+      </Tabs>
     </div>
   );
 }
-
 
 export default App;
