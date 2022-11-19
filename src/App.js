@@ -2,7 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import Tableau from "./visualizations/Tableau";
 import Tableau2 from "./visualizations/Tableau2";
-import { Tab, Tabs, Row, Col, Container } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {

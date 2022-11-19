@@ -4,23 +4,23 @@ const { tableau } = window;
 export const Tableau2 = ({ url, height, width }) => {
   const ref = useRef(null);
 
-  const options = {
-    hideTabs: true,
-    onFirstInteractive: function () {
-      console.log("ofi");
-    },
-    height: height,
-    width: width,
-  };
-
   useEffect(() => {
-    var viz;
+    // var viz;
+
+    const options = {
+      hideTabs: true,
+      onFirstInteractive: function () {
+        console.log("ofi");
+      },
+      height: height,
+      width: width,
+    };
     function initViz() {
-      viz = new tableau.Viz(ref.current, url, options);
+      new tableau.Viz(ref.current, url, options);
     }
 
     initViz();
-  }, [url]);
+  }, [height, url, width]);
 
   return (
     <div style={{ marginLeft: "auto", marginRight: "auto" }}>

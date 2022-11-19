@@ -5,9 +5,9 @@ export const Tableau = ({ url }) => {
   const ref = useRef(null);
 
   useEffect(() => {
-    var viz;
+    // var viz;
     function initViz() {
-      viz = new tableau.Viz(ref.current, url);
+      new tableau.Viz(ref.current, url);
     }
 
     initViz();
