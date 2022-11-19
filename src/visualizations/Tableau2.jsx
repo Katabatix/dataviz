@@ -1,22 +1,29 @@
 import React, { useEffect, useRef } from "react";
 const { tableau } = window;
 
-export const Tableau2 = () => {
+export const Tableau2 = ({ url, height, width }) => {
   const ref = useRef(null);
-  const url =
-    "https://prod-apnortheast-a.online.tableau.com/t/4462dataviz/views/OpeningHoursAnalysisHeatmap/Dashboard1?:origin=card_share_link&:embed=n";
-  function initViz() {
-    new tableau.Viz(ref.current, url);
-  }
+
+  const options = {
+    hideTabs: true,
+    onFirstInteractive: function () {
+      console.log("ofi");
+    },
+    height: height,
+    width: width,
+  };
 
   useEffect(() => {
-    console.log("1");
+    var viz;
+    function initViz() {
+      viz = new tableau.Viz(ref.current, url, options);
+    }
+
     initViz();
-  }, []);
+  }, [url]);
 
   return (
-    <div style={{ width: "50vw", height: "50vh" }}>
-      <p>This is a tableau embed</p>
+    <div style={{ marginLeft: "auto", marginRight: "auto" }}>
       <div ref={ref}></div>
     </div>
   );
