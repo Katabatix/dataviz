@@ -10,18 +10,18 @@ function App() {
 
   const mapURL =
     "https://public.tableau.com/views/Book1_16688508098930/Dashboard1";
-
   const openingHoursURL =
-    "https://public.tableau.com/views/OpeningHoursAnalysisHeatmap/Dashboard1";
+    "https://public.tableau.com/views/OpeningHoursAnalysisHeatmap/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link";
   const correlationURL =
-    "https://public.tableau.com/views/CorrelationMatrixHeatmap2_ColorAdjusted/CorrelationHeatmapOfAttributes";
-  const correlationTest =
-    "https://public.tableau.com/views/CorrelationMatrixHeatmap/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link";
+    "https://public.tableau.com/views/CorrelationMatrixHeatmap2_ColorAdjusted/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link";
   const sunburstURL =
     "https://public.tableau.com/views/sunburstgraph_ColorAdjusted/Sheet1";
   const commentTreemapURL =
     "https://public.tableau.com/views/Project_Treemap_ColorAdjusted/Sheet1";
-
+  const popularCategoryJoyplotURL =
+    "https://public.tableau.com/views/joyplot_16688597647320/JoyPlotYear?:language=en-US&:display_count=n&:origin=viz_share_link"
+  const influentialUsersBubbleChartURL =
+    "https://public.tableau.com/views/Project_InfluentialUser/ClusteredDiagram?:language=en-US&:display_count=n&:origin=viz_share_link"
   return (
     <div className="App">
       <h1>COMP 4462 Yelp Dashboard</h1>
@@ -33,11 +33,12 @@ function App() {
           (20693487)
         </div>
       </div>
+
       <div className="col">
         <div
           style={{ marginLeft: "auto", marginRight: "auto", display: "block" }}
         >
-          <Tableau2 url={mapURL} height={1000} width={1000} />
+          <Tableau2 url={mapURL} height={700} width={"90vw"} />
         </div>
         <div>
           <Tabs
@@ -47,23 +48,30 @@ function App() {
             onSelect={(k) => setKey(k)}
           >
             <Tab eventKey="pop cats" title="Popular Categories">
-              {key === "pop cats" && <Tableau url={sunburstURL} />}
+              {key === "pop cats" && <Tableau2 width={"90vw"} height={"800px"} url={popularCategoryJoyplotURL} />}
             </Tab>
             <Tab eventKey="correlation" title="Attribute Correlation">
               {key === "correlation" && (
-                <Tableau2 url={correlationTest} width={"100vw"} height={1000} />
+                <Tableau2 url={correlationURL} width={"90vw"} height={1000} />
               )}
             </Tab>
             <Tab eventKey="opening hours" title="Opening Hours">
-              {key === "opening hours" && <Tableau url={openingHoursURL} />}
+              {key === "opening hours" && <Tableau2 width={"1300px"} height={"800px"} url={openingHoursURL} />}
             </Tab>
             <Tab eventKey="comment analysis" title="Comment Analysis">
               {key === "comment analysis" && (
-                <Tableau2 url={commentTreemapURL} width={1000} height={600} />
+                <div className="row">
+                  <div className="col-6">
+                    <Tableau2 url={commentTreemapURL} width={"50vw"} height={600} />
+                  </div>
+                  <div className="col-6">
+                    <Tableau2 url={sunburstURL} width={"50vw"} height={600} />
+                  </div>
+                </div>
               )}
             </Tab>
             <Tab eventKey="influential users" title="Influential Users">
-              {/* <Tableau /> */}
+              <Tableau2 url={influentialUsersBubbleChartURL} width={"90vw"} height={600} />
             </Tab>
           </Tabs>
         </div>
