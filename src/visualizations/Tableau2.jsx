@@ -9,9 +9,6 @@ export const Tableau2 = ({ url, height, width }) => {
 
     const options = {
       hideTabs: true,
-      onFirstInteractive: function () {
-        console.log("ofi");
-      },
       height: height,
       width: width,
     };

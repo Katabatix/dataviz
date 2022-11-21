@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState } from "react";
-import Tableau from "./visualizations/Tableau";
 import Tableau2 from "./visualizations/Tableau2";
 import { Tab, Tabs } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import PlotlyWrapper from "./visualizations/PlotlyWrapper";
 
 function App() {
   const [key, setKey] = useState("pop cats");
@@ -19,9 +19,9 @@ function App() {
   const commentTreemapURL =
     "https://public.tableau.com/views/Project_Treemap_ColorAdjusted/Sheet1";
   const popularCategoryJoyplotURL =
-    "https://public.tableau.com/views/joyplot_16688597647320/JoyPlotYear?:language=en-US&:display_count=n&:origin=viz_share_link"
+    "https://public.tableau.com/views/joyplot_16688597647320/JoyPlotYear?:language=en-US&:display_count=n&:origin=viz_share_link";
   const influentialUsersBubbleChartURL =
-    "https://public.tableau.com/views/Project_InfluentialUser/ClusteredDiagram?:language=en-US&:display_count=n&:origin=viz_share_link"
+    "https://public.tableau.com/views/Project_InfluentialUser/ClusteredDiagram?:language=en-US&:display_count=n&:origin=viz_share_link";
   return (
     <div className="App">
       <h1>COMP 4462 Yelp Dashboard</h1>
@@ -48,7 +48,13 @@ function App() {
             onSelect={(k) => setKey(k)}
           >
             <Tab eventKey="pop cats" title="Popular Categories">
-              {key === "pop cats" && <Tableau2 width={"90vw"} height={"800px"} url={popularCategoryJoyplotURL} />}
+              {key === "pop cats" && (
+                <Tableau2
+                  width={"90vw"}
+                  height={"800px"}
+                  url={popularCategoryJoyplotURL}
+                />
+              )}
             </Tab>
             <Tab eventKey="correlation" title="Attribute Correlation">
               {key === "correlation" && (
@@ -56,13 +62,23 @@ function App() {
               )}
             </Tab>
             <Tab eventKey="opening hours" title="Opening Hours">
-              {key === "opening hours" && <Tableau2 width={"1300px"} height={"800px"} url={openingHoursURL} />}
+              {key === "opening hours" && (
+                <Tableau2
+                  width={"1300px"}
+                  height={"800px"}
+                  url={openingHoursURL}
+                />
+              )}
             </Tab>
             <Tab eventKey="comment analysis" title="Comment Analysis">
               {key === "comment analysis" && (
                 <div className="row">
                   <div className="col-6">
-                    <Tableau2 url={commentTreemapURL} width={"50vw"} height={600} />
+                    <Tableau2
+                      url={commentTreemapURL}
+                      width={"50vw"}
+                      height={600}
+                    />
                   </div>
                   <div className="col-6">
                     <Tableau2 url={sunburstURL} width={"50vw"} height={600} />
@@ -71,7 +87,14 @@ function App() {
               )}
             </Tab>
             <Tab eventKey="influential users" title="Influential Users">
-              <Tableau2 url={influentialUsersBubbleChartURL} width={"90vw"} height={600} />
+              <Tableau2
+                url={influentialUsersBubbleChartURL}
+                width={"90vw"}
+                height={600}
+              />
+            </Tab>
+            <Tab eventKey="plotly" title="Plotly">
+              <PlotlyWrapper />
             </Tab>
           </Tabs>
         </div>
