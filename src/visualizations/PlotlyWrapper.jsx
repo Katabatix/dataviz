@@ -126,13 +126,13 @@ const categoryColorMapping = (category) => {
     case "Home Related":
       return "#59a14f";
     case "Pets":
-      return "#59a14f";
+      return "#edc948";
     case "Religion":
-      return "#59a14f";
+      return "#b07aa1";
     case "Retail":
-      return "#59a14f";
+      return "#ff9da7";
     case "Services":
-      return "#59a14f";
+      return " #9c755f";
     case "Unknown":
       return "#bab0ac";
     default:
