@@ -32,7 +32,7 @@ This will start up the server on the port localhost:3000
 
 # Preview
 
-## Front page:
+## Front page
 
 ![Front page](/screenshots/frontpage_map.png)
 
