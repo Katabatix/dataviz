@@ -1,17 +1,23 @@
 import React, { useEffect, useRef } from "react";
 const { tableau } = window;
 
-export const Tableau = ({ url }) => {
+export const Tableau = ({ url, height, width }) => {
   const ref = useRef(null);
 
   useEffect(() => {
     // var viz;
+
+    const options = {
+      hideTabs: true,
+      height: height,
+      width: width,
+    };
     function initViz() {
-      new tableau.Viz(ref.current, url);
+      new tableau.Viz(ref.current, url, options);
     }
 
     initViz();
-  }, [url]);
+  }, [height, url, width]);
 
   return (
     <div style={{ marginLeft: "auto", marginRight: "auto" }}>
