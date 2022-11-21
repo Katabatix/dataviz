@@ -86,14 +86,14 @@ function App() {
                 </div>
               )}
             </Tab>
-            <Tab eventKey="influential users" title="Influential Users">
+            {/* <Tab eventKey="influential users" title="Influential Users">
               <Tableau2
                 url={influentialUsersBubbleChartURL}
                 width={"90vw"}
                 height={600}
               />
-            </Tab>
-            <Tab eventKey="plotly" title="Plotly">
+            </Tab> */}
+            <Tab eventKey="influential users" title="Influential Users">
               <PlotlyWrapper />
             </Tab>
           </Tabs>
