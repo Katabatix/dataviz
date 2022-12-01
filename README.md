@@ -1,3 +1,9 @@
+# Data set used
+Official Yelp Dataset: https://www.yelp.com/dataset 
+
+# Online demo 
+https://comp4462-group5-2022f-project.netlify.app/
+
 # Getting Started (React Application)
 
 Make sure you have node.js installed.
@@ -10,6 +16,8 @@ After pulling and navigating to the root directory of this project, run the foll
 ```
 
 This will start up the server on the port localhost:3000
+
+**All Tableau visualisations have been uploaded to Tableau Public, and the Plotly graph directly in React.**
 
 # Preview
 
